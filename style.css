@@ -358,8 +358,10 @@ li {
   overflow: hidden;
   display: flex;
   align-items: center;
+  /* background-color: #141d2b; */
 }
 
 .percent {
+  /* background-color: #fff; */
   width: 85%;
 }
