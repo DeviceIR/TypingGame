@@ -267,10 +267,11 @@ li {
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
+  border-radius: 3px;
+  background-color: #fff;
 }
 
 .details div {
-  background-color: #fff;
   margin: 0 10px;
   border-radius: 3px;
 }
@@ -354,10 +355,11 @@ li {
 }
 
 .content {
-  width: 85%;
   overflow: hidden;
-  /* height: 100px; */
   display: flex;
-  /* justify-content: center; */
   align-items: center;
+}
+
+.percent {
+  width: 85%;
 }
