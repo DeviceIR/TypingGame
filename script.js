@@ -205,3 +205,4 @@ function startGame() {
   // targetKey();
   // targetRandomKey();
 }
+
