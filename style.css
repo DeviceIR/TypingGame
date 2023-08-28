@@ -14,7 +14,7 @@ body {
   font-weight: 500;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
   height: 100vh;
 }
@@ -22,7 +22,7 @@ body {
 .title:first-of-type {
   color: mintcream;
   text-transform: uppercase;
-  font-size: 1em;
+  font-size: 2em;
   letter-spacing: 0.3em;
   margin-top: 3rem;
   margin-bottom: 1.2rem;
@@ -30,7 +30,7 @@ body {
 .title {
   color: mintcream;
   text-transform: uppercase;
-  font-size: 1em;
+  font-size: 1.5em;
   letter-spacing: 0.6em;
 }
 
@@ -38,6 +38,10 @@ body {
   border: 1px solid #fff;
   padding: 12px 12px;
   margin-bottom: 2rem;
+}
+
+.container.selen {
+  border: none;
 }
 
 .keyboard {
@@ -252,6 +256,7 @@ li {
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   border: 2px solid #9e9e9e;
+  border-radius: 10px;
   transition: border 0.2s linear, background 0.2s linear;
   outline: none;
   padding: 10px;
@@ -268,7 +273,8 @@ li {
   align-items: center;
   margin-bottom: 2rem;
   border-radius: 3px;
-  background-color: #fff;
+  border: dotted 1px #fcdae3;
+  /* background-color: #fff; */
 }
 
 .details div {
@@ -284,19 +290,20 @@ li {
   padding: 8px 18px;
 }
 
-.errors {
-  color: red;
-}
-.wpm {
-  color: rgb(16, 197, 16);
-}
-
 .content {
-  background-color: white;
+  max-width: 130rem;
+  /* background-color: white; */
+  color: white;
   font-weight: bolder;
-  margin: 10px;
+  margin: 4rem 0 2rem 0;
   padding: 25px;
   border-radius: 10px 10px 10px 10px;
+  font-size: 3rem;
+}
+
+.contentapear {
+  border: solid 1px white;
+  background-color: white;
 }
 
 #init_errors,
@@ -326,42 +333,68 @@ li {
 .content span {
   font-size: 2rem;
   font-weight: 700;
-  color: #333;
+  color: #888;
   margin-left: 12px;
 }
-
 
 /* top wpm players */
 
 .wpm-list {
   display: grid;
-  grid-template-columns: repeat(5,1fr);
-  margin-bottom: 3rem;
+  grid-template-columns: repeat(5, 1fr);
+  margin-bottom: 12rem;
   gap: 1.2rem;
   width: 100vh;
 }
 
-.user-wpm-list{
-  background-color: #fff;
-  font-size: 2rem;
+.user-wpm-list {
+  background-color: #fff9fb;
+  /* background-color: #cce7ff; */
+  border: dotted 1px #fcdae3;
+  color: #141d2b;
+  font-size: 1.6rem;
+  font-weight: 600;
   padding: 16px 8px;
   text-align: center;
   border-radius: 5px;
 }
 
-
-.details,.errors,.timer,.accuracy {
+.details,
+.errors,
+.timer,
+.accuracy {
+  color: #fcdae3;
   text-align: center;
+  font-size: 1.2rem;
+}
+.errors {
+  /* color: red; */
+  color: red;
+}
+.wpm {
+  /* color: rgb(16, 197, 16); */
+  /* color: #fcdae3; */
 }
 
 .content {
   overflow: hidden;
   display: flex;
   align-items: center;
+  overflow: hidden;
   /* background-color: #141d2b; */
 }
 
 .percent {
   /* background-color: #fff; */
   width: 85%;
+}
+
+.hidden {
+  display: none;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
 }

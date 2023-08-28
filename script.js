@@ -1,12 +1,14 @@
 const userName = prompt("Enter Your Name : ");
-const top_players = JSON.parse(localStorage.getItem('players') || '[]');
-// update_players_list();
+const top_players = JSON.parse(localStorage.getItem("players") || "[]");
+// update  players_list
 const keys = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
-const timestamps = [];
+// const timestamps = [];
 const content = document.querySelector(".content");
+content.innerText = "Focus".toUpperCase();
 
-timestamps.unshift(getTimestamp());
+// timestamps.unshift(getTimestamp());
 
+//default values
 let wpmNumber = 0;
 let time_limit = 10;
 let sum = 0;
@@ -48,6 +50,7 @@ function time() {
     timer.innerText = `${time}s`;
 
     if (time === 0) {
+      document.querySelector(".wpm-list").classList.remove("hidden");
       wpm();
       clearInterval(timerInterval);
     }
@@ -78,7 +81,9 @@ function update_players_list() {
   if (updated_list.length > 0) {
     for (let i = 0; i < pElement.length - 1; i++) {
       if (updated_list[i]) {
-        pElement[i].innerText = `${updated_list[i].name} has ${updated_list[i].best_wpm}% wpm`;
+        pElement[
+          i
+        ].innerText = `${updated_list[i].name} has ${updated_list[i].best_wpm}% wpm`;
       }
     }
   }
@@ -86,6 +91,8 @@ function update_players_list() {
 
 function resset() {
   content.textContent = null;
+  content.textContent = "Stay Focus";
+  content.classList.add("centered");
   for (const key in keys) {
     if (keys[key].toLowerCase() == current_char.toLowerCase()) {
       const truekey = document.getElementById(keys[key]);
@@ -109,7 +116,7 @@ function updateChar() {
     targetKey();
     counterChar++;
   } else if (current_word.innerHTML.charAt(counterChar) != " ") {
-    content.children[counterWord].classList.add("completed");
+    content.children[counterWord].classList.add("completed"); //better way found:D
     counterChar = 0;
     updateWord(true);
   }
@@ -141,12 +148,13 @@ function targetKey() {
   }
 }
 
-function getTimestamp() {
-  return Math.floor(Date.now() / 1000);
-}
+// function getTimestamp() {
+//   return Math.floor(Date.now() / 1000);
+// }
 
 function setContent() {
-  content.classList.add('percent');
+  content.classList.remove("centered");
+  content.classList.add("percent");
   content.textContent = null;
   current_content =
     "The bikers rode down the long and narrow path to reach the city park. When they reached a good spot to rest, they began to look for signs of spring. The sun was bright, and a lot of bright red and blue blooms proved to all that warm spring days were the very best. Spring rides were planned. They had a burger at the lake and then rode farther up the mountain. As one rider started to get off his bike, he slipped and fell. One of the other bikers saw him fall but could do nothing to help him. Neither the boy nor the bike got hurt. After a brief stop, everyone was ready to go on. All the bikers enjoyed the nice view when they came to the top. All the roads far below them looked like ribbons. A dozen or so boats could be seen on the lake. It was very quiet and peaceful and no one wished to leave. As they set out on their return, they all enjoyed the ease of pedaling. The bikers came upon a new bike trail. This route led to scenery far grander than that seen from the normal path. The end of the day brought laughs and cheers from everyone. The fact that each person was very, very tired did not keep anyone from eagerly planning for the exciting ride to come.";
@@ -189,6 +197,7 @@ document.addEventListener("keyup", (event) => {
 function check_key() {}
 
 function startGame() {
+  content.classList.add(".contentapear");
   resset();
   setContent();
   time();
