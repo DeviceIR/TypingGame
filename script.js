@@ -1,3 +1,5 @@
+import Timer from './scripts/Timer.js';
+
 const userName = prompt("Enter Your Name : ");
 const top_players = JSON.parse(localStorage.getItem("players") || "[]");
 // update  players_list
@@ -41,6 +43,13 @@ function targetRandomKey() {
 
 //   inputField.style.content = "";
 // }
+
+
+/**
+ * New Method of using the timer
+ */
+// let timer = new Timer(10, "#init_time");
+// timer.start();
 
 function time() {
   const timer = document.querySelector("#init_time");
