@@ -1,9 +1,7 @@
-import Timer from './scripts/Timer.js';
-
 const userName = prompt("Enter Your Name : ");
 const top_players = JSON.parse(localStorage.getItem("players") || "[]");
 // update  players_list
-const keys = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+
 // const timestamps = [];
 const content = document.querySelector(".content");
 content.innerText = "Focus".toUpperCase();
@@ -37,19 +35,12 @@ function targetRandomKey() {
 }
 
 // function clearInput() {
-//   const inputField = document.getElementById("clearrr");
+//   const inputField = document.getElementById("input");
 //   inputField.innerHTML.textContent = " ";
 //   console.log(values);
 
 //   inputField.style.content = "";
 // }
-
-
-/**
- * New Method of using the timer
- */
-// let timer = new Timer(10, "#init_time");
-// timer.start();
 
 function time() {
   const timer = document.querySelector("#init_time");
@@ -68,7 +59,7 @@ function time() {
 
 function wpm() {
   wpmNumber =
-    ((passed_word_counter - 1 - errorCounter / 3) / time_limit) * 10000;
+      ((passed_word_counter - 1 - errorCounter / 3) / time_limit) * 10000;
   wpmNumber = Math.round(wpmNumber);
   wpmNumber = wpmNumber / 100;
   const my_wpm = document.getElementById("init_wpm");
@@ -91,8 +82,8 @@ function update_players_list() {
     for (let i = 0; i < pElement.length - 1; i++) {
       if (updated_list[i]) {
         pElement[
-          i
-        ].innerText = `${updated_list[i].name} has ${updated_list[i].best_wpm}% wpm`;
+            i
+            ].innerText = `${updated_list[i].name} has ${updated_list[i].best_wpm}% wpm`;
       }
     }
   }
@@ -112,7 +103,7 @@ function resset() {
   }
   const my_wpm = document.getElementById("init_wpm");
   my_wpm.innerText = 0;
-  const input = document.getElementById("clearrr");
+  const input = document.getElementById("input");
   input.value = "";
   document.getElementById("init_errors").innerText = 0;
 }
@@ -138,7 +129,7 @@ function updateWord(remove) {
     newChild.innerText = "test";
     content.appendChild(newChild);
   }
-  const input = document.getElementById("clearrr");
+  const input = document.getElementById("input");
   input.value = "";
   current_word = content.children[counterWord];
   next_word = content.children[counterWord + 1];
@@ -166,7 +157,7 @@ function setContent() {
   content.classList.add("percent");
   content.textContent = null;
   current_content =
-    "The bikers rode down the long and narrow path to reach the city park. When they reached a good spot to rest, they began to look for signs of spring. The sun was bright, and a lot of bright red and blue blooms proved to all that warm spring days were the very best. Spring rides were planned. They had a burger at the lake and then rode farther up the mountain. As one rider started to get off his bike, he slipped and fell. One of the other bikers saw him fall but could do nothing to help him. Neither the boy nor the bike got hurt. After a brief stop, everyone was ready to go on. All the bikers enjoyed the nice view when they came to the top. All the roads far below them looked like ribbons. A dozen or so boats could be seen on the lake. It was very quiet and peaceful and no one wished to leave. As they set out on their return, they all enjoyed the ease of pedaling. The bikers came upon a new bike trail. This route led to scenery far grander than that seen from the normal path. The end of the day brought laughs and cheers from everyone. The fact that each person was very, very tired did not keep anyone from eagerly planning for the exciting ride to come.";
+      "The bikers rode down the long and narrow path to reach the city park. When they reached a good spot to rest, they began to look for signs of spring. The sun was bright, and a lot of bright red and blue blooms proved to all that warm spring days were the very best. Spring rides were planned. They had a burger at the lake and then rode farther up the mountain. As one rider started to get off his bike, he slipped and fell. One of the other bikers saw him fall but could do nothing to help him. Neither the boy nor the bike got hurt. After a brief stop, everyone was ready to go on. All the bikers enjoyed the nice view when they came to the top. All the roads far below them looked like ribbons. A dozen or so boats could be seen on the lake. It was very quiet and peaceful and no one wished to leave. As they set out on their return, they all enjoyed the ease of pedaling. The bikers came upon a new bike trail. This route led to scenery far grander than that seen from the normal path. The end of the day brought laughs and cheers from everyone. The fact that each person was very, very tired did not keep anyone from eagerly planning for the exciting ride to come.";
   // current_content =
   //   "is am, erfan labratory as it is some known, is dummy text used in goal out print, graphic or web designs. The passage";
   const clearContent = current_content.replace(/(\d)[\s.]+(?=\d)/g, "$1");
@@ -194,7 +185,7 @@ document.addEventListener("keyup", (event) => {
     highlightedKey.classList.remove("selected");
     updateChar();
   } else {
-    const input = document.getElementById("clearrr");
+    const input = document.getElementById("input");
     input.value = "";
     errorCounter++;
     const errors = document.getElementById("init_errors");
@@ -214,4 +205,3 @@ function startGame() {
   // targetKey();
   // targetRandomKey();
 }
-

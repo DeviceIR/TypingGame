@@ -21,41 +21,44 @@
       <p class="user-wpm-list">---</p> -->
     </div>
 
-    <div class="details">
+    <div class="details" id="scoreBoard">
       <div class="wpm">
         <div class="head">Words/min</div>
-        <div id="init_wpm">0</div>
+        <div id="scoreBoard_WPM">0</div>
       </div>
 
       <div class="errors">
         <div class="head">Errors</div>
-        <div id="init_errors">0</div>
+        <div id="scoreBoard_errors">0</div>
       </div>
 
       <div class="timer">
         <div class="head">Time(s)</div>
-        <div id="init_time">0s</div>
+        <div id="scoreBoard_time">0s</div>
       </div>
 
       <div class="accuracy">
         <div class="head">Accuracy(%)</div>
-        <div class="init_accuracy">0</div>
+        <div class="ScoreBoard_accuracy">0</div>
       </div>
     </div>
-    <div class="content">
-      <!--<h1 class="title">Focus</h1>
-      <h1 class="title">Be Ready</h1>-->
-    </div>
+
+    <!--    Page guide - this element is be managed by js    -->
+    <span class="content" id="pageGuide">
+    </span>
+
+
     <div class="container selen">
       <div class="input-box">
         <input
-          id="clearrr"
+          id="input"
           oninput="check_key()"
           onfocus="startGame()"
           onfocusout="resset()"
           class="User-input"
           placeholder="Do your best..."
           type="text"
+          autofocus
           autocorrect="off"
           autocapitalize="off"
           spellcheck="false"
@@ -132,7 +135,8 @@
     </div>
     <h1 class="title" style="margin-top: 7rem">Created by device</h1>
     <!-- <h1 class="title">Look at starter key</h1> -->
-    <script type="module" src="./script.js"></script>
+    <script type="module" src="App.js"></script>
+<!--    <script src="script.js"></script>-->
   </body>
 </html>
 

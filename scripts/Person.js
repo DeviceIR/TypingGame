@@ -12,7 +12,7 @@ class Person
         this.year = year;
     }
 
-    startsTyping()
+    startTyping()
     {
 
     }
