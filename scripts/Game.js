@@ -1,4 +1,4 @@
-import Doc from "./Doc";
+import Document from "./Doc.js";
 
 export default class Game {
     /**
@@ -20,7 +20,7 @@ export default class Game {
 
     /**
      * Holds the document that game will control
-     * @type {Doc}
+     * @type {Document}
      * @property
      */
     doc
@@ -31,7 +31,7 @@ export default class Game {
      * sets the document
      * initializes the game
      * @constructor
-     * @param {Doc} Document
+     * @param {Document} Document
      */
     constructor(Document) {
         // changing state of the game
@@ -51,8 +51,8 @@ export default class Game {
      */
     initGame() {
         // Binding the event listener function reference
-        this.doc.inputElement.addEventListener('focusin', this.inputFocusInListener);
-        this.doc.inputElement.addEventListener('focusout', this.inputFocusOutListener);
+        this.doc.inputElement.addEventListener('focusin', this.inputFocusInListener.bind(this));
+        this.doc.inputElement.addEventListener('focusout', this.inputFocusOutListener.bind(this));
     }
 
 
@@ -61,8 +61,10 @@ export default class Game {
      * and starts the game if it is not already started abd resumes the game if it is paused
      * @method
      */
-    inputFocusInListener() {
-        console.log("user is focused");
+    inputFocusInListener()
+    {
+        this.stateToInProgress()
+        this.doc.gameInit();
     }
 
     /**
@@ -71,6 +73,45 @@ export default class Game {
      * @method
      */
     inputFocusOutListener() {
-        console.log("user is not focused");
+        this.stateToPaused();
+        // this.doc.pauseGame();
+    }
+
+
+    /**
+     * changes state of the game to in progress the game
+     * @method
+     */
+    stateToInProgress()
+    {
+        this.state = Game.State.IN_PROGRESS;
+    }
+
+
+    /**
+     * changes state of the game to paused
+     * @method
+     */
+    stateToPaused()
+    {
+        this.state = Game.State.PAUSED;
+    }
+
+    /**
+     * changes state of the game to finished
+     * @method
+     */
+    stateToFinished()
+    {
+        this.state = Game.State.FINISHED;
+    }
+
+    /**
+     * changes state of the game to waiting to start
+     * @method
+     */
+    stateToWaitingToStart()
+    {
+        this.state = Game.State.WAITING_TO_START;
     }
 }
