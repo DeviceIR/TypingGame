@@ -41,7 +41,6 @@ export default class Document
     inputElement = this.$("input");
 
 
-
     /**
      * @constructor
      * the constructor will make changes to make the Doc ready for player to start the game
