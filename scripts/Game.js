@@ -1,3 +1,5 @@
+import Doc from "./Doc";
+
 export default class Game {
     /**
      * These are the states that the game is currently in.
@@ -17,24 +19,26 @@ export default class Game {
     state;
 
     /**
-     * @type {Element}
+     * Holds the document that game will control
+     * @type {Doc}
      * @property
      */
-    inputField;
+    doc
+
 
     /**
      * changes the state of the game
-     * sets the input field
+     * sets the document
      * initializes the game
      * @constructor
-     * @param {Element} inputField
+     * @param {Doc} Document
      */
-    constructor(inputField) {
+    constructor(Document) {
         // changing state of the game
         this.state = Game.State.WAITING_TO_START;
 
         // setting the input field
-        this.inputField = inputField;
+        this.doc = Document;
 
         // game init
         this.initGame();
@@ -47,8 +51,8 @@ export default class Game {
      */
     initGame() {
         // Binding the event listener function reference
-        this.inputField.addEventListener('focusin', this.inputFocusInListener);
-        this.inputField.addEventListener('focusout', this.inputFocusOutListener);
+        this.doc.inputElement.addEventListener('focusin', this.inputFocusInListener);
+        this.doc.inputElement.addEventListener('focusout', this.inputFocusOutListener);
     }
 
 

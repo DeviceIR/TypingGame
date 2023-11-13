@@ -9,4 +9,4 @@ const keys = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
 import Document from "./scripts/Doc.js";
 
 let doc = new Document();
-let game = new Game(doc.inputElement)
+let game = new Game(doc)
